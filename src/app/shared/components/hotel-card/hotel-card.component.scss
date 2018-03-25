@@ -1,0 +1,88 @@
+.card{
+    width: 90%;
+    padding: 10px 10px 40px;
+    background-color: white;
+    margin:0 auto;
+}
+
+.card__image{
+    img{
+        max-width: 100%;
+    }
+}
+.card__title{
+    margin-top: 10px;
+    color: #338BBB;
+}
+
+.card__info{
+    border-top: 1px #000 dotted;
+    padding-top: 20px;
+    text-align: center;
+   
+}
+.card__services{
+    margin-bottom: 20px;
+}
+.card__stars{
+    padding: 20px 0;
+    color: #FDBA12;
+    font-size: 20px;
+}
+
+.card__price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    color: #DF6800;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 50px;
+    margin-left: 10px;
+}
+
+.btn{
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.btn--blue{
+    background-color: #002C77;
+    border-width: 0;
+    
+}
+
+@media(min-width: 768px){
+    .card{
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+        padding: 10px;
+    }
+
+    .card__image{
+        width: 20%;
+    }
+
+    .card__info{
+        border-top: none;
+        border-left: 1px #000 dotted;
+        padding: 40px;
+        width: 20%;
+    }
+
+    .card__main{
+        width: 60%;
+        margin-left: 20px;
+    }
+}
