@@ -1,2 +1,4 @@
 <app-header></app-header>
-<app-hotel-card></app-hotel-card>
+<div class="card-container">
+    <app-hotel-card *ngFor="let hotel of hotels" [hotel]="hotel"></app-hotel-card>
+</div>
