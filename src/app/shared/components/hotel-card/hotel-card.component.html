@@ -1,0 +1,19 @@
+<div class="card">
+  <figure class="card__image">
+      <img src="assets/images/hotels/{{hotel.image}}">
+  </figure>
+  <div class="card__main">
+    <h2 class="card__title">{{hotel.name}}</h2>
+    <div class="card__stars">
+        <i *ngFor="let i of stars" class="fa fa-star"></i>        
+    </div>
+    <div class="card__services">
+        <i *ngFor="let i of hotel.amenities" class="fa fa-star"></i>
+    </div>
+  </div>
+  <div class="card__info">
+      <span class="card__price-title">Precio por noche por habitación</span>
+      <h3 class="card__price">ARS <span class="price">{{hotel.price}}</span></h3>
+      <button class="btn btn--blue"> Ver hotel</button>
+  </div>
+</div>
