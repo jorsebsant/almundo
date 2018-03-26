@@ -2,15 +2,57 @@
 <div class="container">
     <div class="filter">
         <div class="filter__header">
-            <h1>Filtros</h1>
+            <span>Filtros</span>
         </div>
-        <div class="filter__form">
-            <form [formGroup]="searchForm">
-                <h3>Nombre de hotel</h3>
-                <input formControlName="name" type="text">
-                <button (click)="onSubmit()">Aceptar</button>
-            </form>    
+        <div class="filter__header header--responsive">
+            <span data-toggle="collapse" data-target="#filter-container">Filtrar <i class="fa fa-caret-down" aria-hidden="true"></i></span>
         </div>
+        <div id="filter-container" class="collapse">
+            <div class="filter__form">
+                <form [formGroup]="searchForm">
+                    <span class="collapse-container">                    
+                        <label class="label" data-toggle="collapse" data-target="#form"><i class="icon-search"></i> Nombre de hotel </label>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </span>
+                    <div id="form" class="collapse in">
+                        <input class="input" placeholder="Ingrese el nombre del hotel" formControlName="name" type="text">
+                        <button class="btn btn--blue btn--inline" (click)="onSubmit()">Aceptar</button>
+                    </div>
+                </form>    
+            </div>
+            <div class="filter__form filter--no-borders">
+                <span class="collapse-container">                    
+                    <label class="label" data-toggle="collapse" data-target="#stars-form"><i class="icon-star"></i> Estrellas </label>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </span>
+                <div id="stars-form" class="collapse in stars-container">
+                    <label class="label"><input type="checkbox" class="none" (change)="onChange($event)"  value="" checked>Todas las estrellas</label>
+                    <label class="label"><input type="checkbox" class="five" (change)="onChange($event)" value="5">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </label>
+                    <label class="label"><input type="checkbox" class="four" (change)="onChange($event)" value="4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </label>
+                    <label class="label"><input type="checkbox" class="three" (change)="onChange($event)" value="3">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </label>
+                    <label class="label"><input type="checkbox" class="two" (change)="onChange($event)" value="2">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </label>
+                    <label class="label"><input type="checkbox" class="one" (change)="onChange($event)" value="1"><i class="fa fa-star"></i></label>
+                </div>
+            </div>
+        </div>    
     </div>
     <div class="card-container">
         <app-hotel-card *ngFor="let hotel of hotels" [hotel]="hotel"></app-hotel-card>

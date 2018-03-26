@@ -24,9 +24,22 @@ export class MainComponent implements OnInit {
 
   onSubmit() {
    const name = this.searchForm.get('name').value;
-   this.hotelService.searchHotelByName(name).subscribe(response => {
+   const stars = this.getStars();
+   this.hotelService.searchHotelByCriteria(name, stars).subscribe(response => {
      this.hotels = response;
    });
+  }
+
+  onChange($event) {
+    const element = $event.srcElement;
+    const name = this.searchForm.get('name').value;
+    const checkboxes = document.querySelectorAll(`#stars-form input:not([class="${element.className}"])`);
+    for (let  i = 0; i < checkboxes.length; i++) {
+        checkboxes[i]['checked'] = false;
+    }
+    this.hotelService.searchHotelByCriteria(name, element.value).subscribe(response => {
+      this.hotels = response;
+    });
   }
 
   private buildForm() {
@@ -39,6 +52,10 @@ export class MainComponent implements OnInit {
     this.hotelService.getHotels().subscribe(response => {
       this.hotels = response;
     });
+  }
+
+  private getStars() {
+    return document.querySelectorAll('#stars-form input:checked')[0]['value'];
   }
 
 }
