@@ -15,8 +15,9 @@ export class HotelsService {
     return this.http.get(`${environment.baseUrl}/${Constants.hotelEntity}`);
   }
 
-  searchHotelByName(name) {
-    return this.http.get(`${environment.baseUrl}/${Constants.hotelEntity}/${Constants.searchEndpoint}?name=${name}`);
+  searchHotelByCriteria(name, stars) {
+    const starsQuery = (stars !== '') ? `stars=${stars}` : '';
+    return this.http.get(`${environment.baseUrl}/${Constants.hotelEntity}/${Constants.searchEndpoint}?name=${name}&${starsQuery}`);
   }
 
 }
