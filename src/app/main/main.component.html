@@ -1,4 +1,18 @@
 <app-header></app-header>
-<div class="card-container">
-    <app-hotel-card *ngFor="let hotel of hotels" [hotel]="hotel"></app-hotel-card>
+<div class="container">
+    <div class="filter">
+        <div class="filter__header">
+            <h1>Filtros</h1>
+        </div>
+        <div class="filter__form">
+            <form [formGroup]="searchForm">
+                <h3>Nombre de hotel</h3>
+                <input formControlName="name" type="text">
+                <button (click)="onSubmit()">Aceptar</button>
+            </form>    
+        </div>
+    </div>
+    <div class="card-container">
+        <app-hotel-card *ngFor="let hotel of hotels" [hotel]="hotel"></app-hotel-card>
+    </div>
 </div>

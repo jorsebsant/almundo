@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+    // .filter{
+    //     display: none;
+    // }
+
+.card-container{
+    width: 100%;
+}
+
+@media(min-width: 768px){    
+    .container{
+        padding: 25px;
+    }
+    .filter{
+        width: 25%;
+    }
+    
+    .card-container{
+        width: 75%;
+    }
+}
