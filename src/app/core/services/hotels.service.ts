@@ -16,7 +16,7 @@ export class HotelsService {
   }
 
   searchHotelByName(name) {
-    return this.http.get(`${environment.baseUrl}/${Constants.hotelEntity}/${Constants.searchEndpoint}`);
+    return this.http.get(`${environment.baseUrl}/${Constants.hotelEntity}/${Constants.searchEndpoint}?name=${name}`);
   }
 
 }
